@@ -5,7 +5,7 @@ node('master') {
         echo 'Hello World'
     }
     stage('Git Pull from Github') {
-        git url: https://github.com/miqbalnawawi/CICD-MERN-Frontend.git'
+        git url: 'https://github.com/miqbalnawawi/CICD-MERN-Frontend.git'
     }
     stage('Build Docker Image') {
         sh "docker build --build-arg APP_NAME=frontend -t $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:${BUILD_NUMBER} ."   
