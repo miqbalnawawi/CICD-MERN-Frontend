@@ -1,11 +1,11 @@
 env.DOCKER_REGISTRY = 'miqbalnawawi'
 env.DOCKER_IMAGE_NAME = 'frontend3'
 node('master') {
-	stage('HelloWorld') {
-      echo 'Hello World'
+    stage('HelloWorld') {
+        echo 'Hello World'
     }
     stage('Git Pull from Github') {
-        sh 'git clone https://github.com/miqbalnawawi/CICD-MERN-Frontend.git'
+        git url: https://github.com/miqbalnawawi/CICD-MERN-Frontend.git'
     }
     stage('Build Docker Image') {
         sh "docker build --build-arg APP_NAME=frontend -t $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:${BUILD_NUMBER} ."   
